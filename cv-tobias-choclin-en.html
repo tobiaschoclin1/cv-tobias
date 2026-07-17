@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tobias Choclin - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #4a4a4a;
+            --accent-color: #1e40af;
+            --border-color: #e5e7eb;
+            --bg-light: #f9fafb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+            background: white;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+        }
+
+        .portfolio-line {
+            display: none;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.8rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section {
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .summary {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 1rem;
+        }
+
+        .job-header, .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .project-title a {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 2px;
+        }
+
+        .project-title a:hover {
+            color: var(--accent-color);
+        }
+
+        .date {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .company {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+
+        ul {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-category strong {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        .skill-category p {
+            margin-top: 0.3rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--secondary-color);
+        }
+
+        .tech-stack {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            letter-spacing: 0.2px;
+        }
+
+        @media print {
+            body {
+                padding: 0.5cm;
+                max-width: 100%;
+                font-size: 11pt;
+            }
+
+            header {
+                margin-bottom: 0.5rem;
+                padding-bottom: 0.3rem;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .contact-info {
+                font-size: 0.75rem;
+                gap: 0.1rem;
+                flex-direction: column;
+            }
+
+            .portfolio-line {
+                display: block;
+            }
+
+            .portfolio-link {
+                color: var(--accent-color) !important;
+                text-decoration: underline;
+            }
+
+            h2 {
+                font-size: 1rem;
+                margin: 0.4rem 0 0.3rem 0;
+            }
+
+            .section {
+                margin-bottom: 0.2rem;
+                padding-bottom: 0.2rem;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .section:last-of-type {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+
+            .summary {
+                padding: 0.4rem;
+                margin-bottom: 0.2rem;
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+
+            .experience-item, .project-item {
+                margin-bottom: 0.4rem;
+            }
+
+            .job-title {
+                font-size: 0.9rem;
+            }
+
+            .project-title {
+                font-size: 0.95rem;
+            }
+
+            .date {
+                font-size: 0.8rem;
+            }
+
+            ul {
+                margin-left: 1rem;
+                margin-top: 0.15rem;
+                margin-bottom: 0.15rem;
+            }
+
+            li {
+                margin-bottom: 0.2rem;
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+
+            .tech-stack {
+                margin-top: 0.3rem;
+                font-size: 0.75rem;
+                color: var(--accent-color);
+            }
+
+            .skills-grid {
+                gap: 0.3rem;
+                margin-top: 0.2rem;
+            }
+
+            .skill-category {
+                margin-bottom: 0.25rem;
+                page-break-inside: avoid;
+            }
+
+            .skill-category strong {
+                font-size: 0.85rem;
+            }
+
+            .skill-category p {
+                font-size: 0.8rem;
+                line-height: 1.3;
+                margin-top: 0.1rem;
+            }
+
+            a {
+                color: var(--primary-color);
+                text-decoration: none;
+            }
+
+            .project-title a {
+                color: var(--primary-color);
+                border-bottom: 1px solid var(--accent-color);
+            }
+
+            a[href]:after {
+                content: "";
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+
+            .experience-item, .project-item {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .job-header, .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TOBIAS CHOCLIN</h1>
+        <p class="subtitle">Computer Engineering Student | Software Developer</p>
+        <div class="contact-info">
+            <span>Buenos Aires, Argentina | <a href="mailto:tobiaschoclin1@gmail.com" target="_blank">tobiaschoclin1@gmail.com</a> | +54 9 11 4147 6350</span>
+            <span class="portfolio-line">Portfolio: <a href="https://tobiaschoclin-portfolio.vercel.app" target="_blank" class="portfolio-link">tobiaschoclin-portfolio.vercel.app</a></span>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2>About Me</h2>
+        <div class="summary">
+            Computer Engineering student and IT Support Engineer at Red Hat, with a strong technical profile in Linux environments and problem-solving. Passionate about full-stack software development, with hands-on experience building web, desktop, and mobile applications using Next.js/React, Python/FastAPI, Java, and TypeScript. Proficient in SQL databases (PostgreSQL, SQLite), NoSQL (MongoDB), RESTful APIs, Docker, and multi-platform architectures. Solid foundation in OOP and proactive approach to contributing to engineering culture.
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Professional Experience</h2>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">IT Support Engineering Intern - Red Hat</div>
+                </div>
+                <div class="date">Feb 2025 - Present</div>
+            </div>
+            <ul>
+                <li>On-site and remote support for associates (Windows, macOS, and Linux).</li>
+                <li>Ticket management and resolution in ServiceNow.</li>
+                <li>Support for corporate applications (MS Office, Google Workspace, Tableau, Lucidchart).</li>
+                <li>Collaboration with global teams in English and Spanish.</li>
+                <li>Experience in device deployment, troubleshooting, and technical documentation.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Application Management Intern - Claro</div>
+                </div>
+                <div class="date">Jun 2024 - Jan 2025</div>
+            </div>
+            <ul>
+                <li>Implementation of jobs and processes in Control-M.</li>
+                <li>Maintenance and monitoring of business mediation applications (Comptel EventLink).</li>
+                <li>ETL management and implementation with Apache NiFi.</li>
+                <li>Linux/Unix–Oracle 10 and 11 ecosystem.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Team Director - BAMI Marc Chagall</div>
+                </div>
+                <div class="date">Jan 2019 - Dec 2025</div>
+            </div>
+            <ul>
+                <li>Planning, coordination, execution, and development of recreational and non-formal education activities.</li>
+                <li>Coordination of group leaders in a non-formal educational environment.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Technical Skills</h2>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <strong>Languages & Frameworks:</strong>
+                <p>React, TypeScript, SQL, Python, Java (Spring Boot), JavaScript (Node.js, Express), HTML, CSS.</p>
+            </div>
+
+            <div class="skill-category">
+                <strong>Databases:</strong>
+                <p>PostgreSQL, MySQL, MongoDB, SQLite</p>
+            </div>
+
+            <div class="skill-category">
+                <strong>Tools:</strong>
+                <p>Linux, Git / GitHub, Docker, Maven, Control-M, Apache NiFi, ServiceNow</p>
+            </div>
+
+            <div class="skill-category">
+                <strong>Concepts & Methodologies:</strong>
+                <p>OOP, MVC, RESTful APIs, ETL, Microservices, CI/CD, JSON, API Integration, Agile / Scrum</p>
+            </div>
+
+            <div class="skill-category">
+                <strong>Languages:</strong>
+                <p>Spanish (Native), English (B2)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Personal Projects</h2>
+
+        <div class="project-item">
+            <div class="project-header">
+                <h3 class="project-title"><a href="https://fiddo-app.vercel.app" target="_blank">User Loyalty Platform (Fiddo)</a></h3>
+            </div>
+            <ul>
+                <li>Design and development of a web application for centralized management and communication with loyal customers on Mercado Libre.</li>
+                <li>Full-stack implementation using Next.js 15, TypeScript, and Tailwind CSS.</li>
+                <li>NoSQL database management with MongoDB and Prisma ORM, integrating OAuth2 authentication with NextAuth (Google and Mercado Libre).</li>
+            </ul>
+            <div class="tech-stack">Next.js, TypeScript, MongoDB, Prisma, NextAuth, Tailwind CSS</div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <h3 class="project-title"><a href="https://sprightly-blancmange-25decb.netlify.app/dashboard" target="_blank">Pharmacy Management System</a></h3>
+            </div>
+            <ul>
+                <li>Development of a multi-platform system for inventory control, product management, and expiration date tracking.</li>
+                <li>Modular architecture with desktop application (JavaFX 22), web interface (Spring Boot 3.2.4 + Thymeleaf), and shared business logic.</li>
+                <li>Implementation with Java 21, Spring Security + OAuth2, PostgreSQL database (production), and SQLite (development).</li>
+                <li>Migration management using Flyway and Excel file import/export handling with Apache POI.</li>
+            </ul>
+            <div class="tech-stack">Java, Spring Boot, JavaFX, PostgreSQL, SQLite, Thymeleaf, Flyway, Apache POI, Maven</div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <h3 class="project-title"><a href="https://crypto-quant-pro-3cd0b7edd414.herokuapp.com/" target="_blank">Cryptocurrency Tracking and Recommendation System (Crypto Quant)</a></h3>
+            </div>
+            <ul>
+                <li>Development of a quantitative trading system for cryptocurrencies with real-time automated technical analysis.</li>
+                <li>Backend API built with FastAPI in Python, integrating Pandas and NumPy for financial data analysis.</li>
+                <li>Market data retrieval using yFinance and development of multi-platform interfaces: web (HTML/JavaScript) and mobile (Flet).</li>
+            </ul>
+            <div class="tech-stack">Python, FastAPI, Pandas, NumPy, yFinance, Flet, HTML, JavaScript</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Education</h2>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Computer Engineering - Universidad Argentina De la Empresa</div>
+                </div>
+                <div class="date">Mar 2020 - Present</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
